@@ -1,3 +1,5 @@
 /node_modules/
 /log/
-/data/
+/_raw_data/
+/public/data/
+ds14_scivis_0128.tar
