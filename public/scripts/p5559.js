@@ -16,7 +16,7 @@ function init_three() {
 
   // init renderer
   renderer = new THREE.WebGLRenderer({antialias : true, alpha : true});
-  renderer.setClearColor(new THREE.Color(0x000000), 0);
+  renderer.setClearColor(new THREE.Color(0x000000), 0.8);
   renderer.setSize(container.offsetWidth, container.offsetHeight);
   container.appendChild(renderer.domElement);
 
@@ -49,13 +49,13 @@ function init_three() {
     vertex.z = Math.random() * 50 - 25;
     geometry.vertices.push(vertex);
     var color = new THREE.Color();
-    color.setRGB(0.6, 0.6, 0.6);
+    color.setHSL(vertex.y / 200 + 0.5, 1.0, 0.5);
     geometry.colors.push(color);
   }
   geometry.computeBoundingSphere();
 
   var sprite = THREE.ImageUtils.loadTexture("../texture/snowflake7_alpha.png");
-  var material = new THREE.ParticleSystemMaterial({size: 1, vertexColors: true, map: sprite, transparent: true});
+  var material = new THREE.ParticleSystemMaterial({size: 1.2, vertexColors: true, map: sprite, transparent: true});
 
   particle_system = new THREE.ParticleSystem(geometry, material);
   particle_system.sortParticles = true;
