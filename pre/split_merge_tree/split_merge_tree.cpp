@@ -77,6 +77,8 @@ int main(int argc, char* argv[])
     //read out the header
     getline(file2, value1);
 
+    ofstream out("tree_id.csv");
+
     for(int i=0;i<numtree;i++)
     {
 	    getline(file2, value1);
@@ -85,31 +87,37 @@ int main(int argc, char* argv[])
         file1.seekg(jump, ios_base::beg);
 	    stringstream ss;
 	    ss<<temp[0];
-	    string fname = "../../public/data/trees/tree_" + ss.str() + ".csv";
-	    ofstream out (fname.c_str());
 
-	    // out<<"#tree "<<ss.str()<<endl;
+        out << ss.str() << ",";
 
-	    while (getline(file1, value))
-	    {
+	 //    string fname = "../../public/data/trees/tree_" + ss.str() + ".csv";
+	 //    ofstream out (fname.c_str());
 
-		    if(value.at(0) != '#')
-		    {
-                vector<float> vec = split_float(value, " ");
-                out << *(vec.begin());
-                for (auto it = vec.begin() + 1; it < vec.end(); ++it)
-		    	  out << "," << *it;
-                out << endl;
-		    }
-		    else
-		    {
-		    	break;
-		    }
+	 //    // out<<"#tree "<<ss.str()<<endl;
+  //       out << "scale,id,desc_scale,desc_id,num_prog,pid,upid,desc_pid,phantom,sam_mvir,mvir,rvir,rs,vrms,mmp,scale_of_last_MM,vmax,x,y,z,vx,vy,vz,Jx,Jy,Jz,Spin,Breadth_first_ID,Depth_first_ID,Tree_root_ID,Orig_halo_ID,Snap_num,Next_coprogenitor_depthfirst_ID,Last_progenitor_depthfirst_ID,Rs_Klypin,M_all,M200b,M200c,M500c,M2500c,Xoff,Voff,Spin_Bullock,b_to_a,c_to_a,Ax,Ay,Az,b_to_a,c_to_a,Ax500c,Ay500c,Az500c,TU,M_pe_Behroozi,M_pe_Diemer" << endl;
 
-		}
+	 //    while (getline(file1, value))
+	 //    {
 
-		out.close();
+		//     if(value.at(0) != '#')
+		//     {
+  //               vector<float> vec = split_float(value, " ");
+  //               out << *(vec.begin());
+  //               for (auto it = vec.begin() + 1; it < vec.end(); ++it)
+		//     	  out << "," << *it;
+  //               out << endl;
+		//     }
+		//     else
+		//     {
+		//     	break;
+		//     }
+
+		// }
+
+		// out.close();
 	}
+
+    out.close();
 
     return 0;
 }
