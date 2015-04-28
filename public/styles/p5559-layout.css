@@ -9,12 +9,17 @@ body {
 	height: 100%;
 	margin: 0;
 	padding: 0;
-	background: #d9dbdb;
-	background: -moz-linear-gradient(top, rgba(240,242,242,1) 0%, rgba(217,219,219,1) 100%);
+	background: #EEE;
+/*	background: -moz-linear-gradient(top, rgba(240,242,242,1) 0%, rgba(217,219,219,1) 100%);
 	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, rgba(240,242,242,1)), color-stop(100%, rgba(217,219,219,1)));
-	background: linear-gradient(top, rgba(240,242,242,1) 0%, rgba(217,219,219,1) 100%);
+	background: linear-gradient(top, rgba(240,242,242,1) 0%, rgba(217,219,219,1) 100%);*/
 	background-attachment: fixed;
 	overflow: hidden;
+}
+
+h2 {
+	margin-left: 8px;
+	color: lightgray;
 }
 
 /*scroll bar*/
@@ -49,4 +54,25 @@ body {
 	left: 0px;
 	width: 100%;
 	height: 100%;
+	z-index: 0;
+}
+
+#haloprop {
+	position: fixed;
+	top: 0px;
+	left: 0px;
+	width: 50%;
+	height: 100%;
+	z-index: 5;
+	pointer-events: none;
+}
+
+#treeviewer {
+	position: fixed;
+	top: 0px;
+	left: 0px;
+	width: 100%;
+	height: 100%;
+	display: none;
+	z-index: 0;
 }
